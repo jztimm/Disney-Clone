@@ -7,7 +7,12 @@ const Header = (props) => {
       <Logo >
         <img src="/images/logo.svg" alt="Disney+ Logo" />
       </Logo>
-      <NavMenu>Menu</NavMenu>
+      <NavMenu>
+        <a href="/home">
+          <img src="/images/home-icon.svg" alt="HOME"/>
+          <span>HOME</span>
+        </a>
+      </NavMenu>
     </Nav>
   )
 }
@@ -53,9 +58,60 @@ const NavMenu = styled.div`
   margin-right: auto;
   margin-left: 25px;
 
-  @media (max-width: 768px) {
-    display: none;
+  a {
+    display: flex;
+    align-items: center;
+    padding 0 12px;
+
+    img {
+      height: 20px;
+      min-width: 20px;
+      width: 20px;
+      z-index: auto;
+    }
+
+    span {
+      color: rgb(249, 249, 249);
+      font-size: 13px;
+      letter-spacing: 1.42px;
+      line-height: 1.08;
+      padding: 2px 0px;
+      white-spacing: nowrap;
+      position: relative;
+
+      &:before {
+        background-color: rgb(249, 249, 249);
+        border-radius: 0px 0px 4px 4px;;
+        bottom: -6px;                             // Moves line under the text
+        content: "";
+        height: 2px;
+        left: 0px;            // Must start at position left 0 to go under text
+        opacity: 0;           // Opacity increases from 0 to 1
+        position: absolute;   // Must be absolute for postioning to work
+        right: 0px;           // Must start at position left 0 to go under text
+        transform-origin: left center;
+        transform: scaleX(0); // ScaleX scaled animation from start (0) to (1)
+        
+        // Gives fluid reveal of the line
+        transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        visibility: hidden;   // Makes visibility from hidden to visable
+        width: auto;
+      }
+    }
+
+    &:hover {
+      span:before {
+        transform: scaleX(1); // ScaleX scaled animation from start (0) to (1)
+        visibility: visible;  // Makes visibility from hidden to visable
+        opacity: 1 !important;  // Opacity increases from 0 to 1
+      }
+    }
   }
+  /*@media (max-width: 768px) {
+    display: none;
+  } */
 `
+
+
 
 export default Header
