@@ -5,7 +5,12 @@ const Login = () => {
   return (
     <Container>
       <Content>
-        Content
+        <CTA>
+          <CTALogoOne src="/images/cta-logo-one.svg" alt=""/>
+          
+          
+        </CTA>
+        <BgImage/>
       </Content>
     </Container>
   )
@@ -29,6 +34,46 @@ const Content = styled.div`
   justify-content: center;    // Makes it go to the right 'center'
   align-items: center;        // Makes items go to the bottom 'center'
   flex-direction: column;
+  padding: 80px 40px;
+  height: 100%;
 `
+
+const BgImage = styled.div`
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/images/login-background.jpg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index -1
+`
+const CTA = styled.div`
+  margin-bottom: 2vw;
+  max-width: 650px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+  align-items: center;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+`
+
+const CTALogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
+`
+
+
+
 
 export default Login
