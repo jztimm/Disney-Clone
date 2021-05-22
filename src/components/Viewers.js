@@ -5,8 +5,8 @@ const Viewers = (props) => {
     <Container>
       <Wrap>
         <img src="/images/viewers-disney.png" alt=""/>
-        <video autoPlay={true} loop={true} playsInLine={true}>
-          <source src="/videos/1564674844-disney.mp4" type="video/mp4"/>
+        <video autoPlay={true} loop={true} playsInline={true}>
+          <source src="/videos/1564674844-disney.mp4" type="video/mp4" />
         </video>
       </Wrap>
       <Wrap>
@@ -79,6 +79,20 @@ const Wrap = styled.div`
     height: 100%;
     position: absolute;
     top: 0px;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  &:hover {
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+      rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+
+    transform: scale(1.05);
+    border-color: rgba(249, 249, 249, 0.8);
+
+    video {
+      opacity: 1;
+    }
   }
 `
 
